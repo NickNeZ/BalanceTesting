@@ -1,33 +1,33 @@
 version: "3.0"
 services:
-  app1:
-    image: counterapp2
-    ports:
-      - "8080:8080"
-
-
-  app2:
-    image: counterapp2
-    ports:
-      - "8081:8080"
-
-
-  app3:
-    image: counterapp2
-    ports:
-      - "8082:8080"
+#  app1:
+#    image: counterapp2
+#    ports:
+#      - "8080:8080"
+#
+#
+#  app2:
+#    image: counterapp2
+#    ports:
+#      - "8081:8080"
+#
+#
+#  app3:
+#    image: counterapp2
+#    ports:
+#      - "8082:8080"
 
 #  stats:
 #    image: statsapp
 #    ports:
 #      - "8083:8080"
 
-  queue:
-    image: queueapp
-    ports:
-      - "8087:8080"
-    depends_on:
-      - redis
+#  queue:
+#    image: queueapp
+#    ports:
+#      - "8087:8080"
+#    depends_on:
+#      - redis
 
 #  nginx:
 #    image: nginx
@@ -40,10 +40,27 @@ services:
 #      - app2
 #      - app3
 
-  redis:
-    image: redis
+#  redis:
+#    image: redis
+#    ports:
+#      - "6379:6379"
+
+  db:
+    image: postgres
     ports:
-      - 6379:6379
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: aboba123
+
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "80:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: email@domain.com
+      PGADMIN_DEFAULT_PASSWORD: aboba123
+    depends_on:
+      - db
 
 #  ab:
 #    image: httpd:2.4
