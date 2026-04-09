@@ -5,7 +5,7 @@ services:
 #    ports:
 #      - "8080:8080"
 #
-#
+
 #  app2:
 #    image: counterapp2
 #    ports:
@@ -67,7 +67,7 @@ services:
 #    entrypoint: [ab]
 #    depends_on:
 #      - nginx
-#
+
 #  jmeter:
 #    image: justb4/jmeter
 #    volumes:
